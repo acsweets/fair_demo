@@ -1,0 +1,32 @@
+import 'dart:convert';
+
+import 'package:fair/fair.dart';
+import 'package:flutter/material.dart';
+
+class TestPageFairDelegate extends FairDelegate {
+  late ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    onLoad();
+  }
+
+  void onLoad() {
+    _controller = ScrollController();
+  }
+
+  @override
+  Map<String, PropertyValue> bindValue() {
+    return {
+      ...super.bindValue(),
+      // key 跟页面上面的名字一致
+      '_controller': () => _controller,
+    };
+  }
+
+  @override
+  Map<String, Function> bindFunction() {
+    return super.bindFunction();
+  }
+}

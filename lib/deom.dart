@@ -18,27 +18,29 @@ class _TestPageState extends State<TestPage> {
   var feedList = [];
   final String _pageName = '#FairKey#';
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("FairCommonPlugin"),
-      ),
-      body: Center(
-        child: GestureDetector(
-            onTap: () {
-              showToast();
-            },
-            child: const Text('TestPage')),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("FairCommonPlugin"),
+        ),
+        body: ListView.builder(
+            itemCount: 2,
+            itemBuilder: (context, index) {
+              return Center(
+                child: GestureDetector(
+                    onTap: () {
+                      // showToast();
+                    },
+                    child: const Text('TestPage')),
+              );
+            }));
   }
 
-  void showToast() {
-    FairCommonPlugin().showMessageToast({
-      'pageName': _pageName,
-      'msg': '调用插件案例',
-    });
-  }
+  // void showToast() {
+  //   FairCommonPlugin().showMessageToast({
+  //     'pageName': _pageName,
+  //     'msg': '调用插件案例',
+  //   });
+  // }
 }

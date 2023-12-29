@@ -120,13 +120,13 @@ Future<void> createBindings({
       }
     }
 
-    // for (var element in component.functionParameters) {
-    //   var name = element.name!;
-    //   if (name.endsWith('?')) {
-    //     name = name.substring(0, name.length - 1);
-    //   }
-    //   functions[name] = element.functionType!;
-    // }
+    for (var element in component.functionParameters) {
+      var name = element.name!;
+      if (name.endsWith('?')) {
+        name = name.substring(0, name.length - 1);
+      }
+      functions[name] = element.functionType!;
+    }
   }
 
   // {
