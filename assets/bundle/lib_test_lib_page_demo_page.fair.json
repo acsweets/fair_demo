@@ -1,0 +1,185 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "body": {
+      "className": "Sugar.ifEqualBool",
+      "pa": [
+        {
+          "className": "SugarCommon.isNull",
+          "pa": [
+            "^(_data)"
+          ]
+        }
+      ],
+      "na": {
+        "trueValue": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Center",
+            "na": {
+              "child": {
+                "className": "CircularProgressIndicator",
+                "na": {
+                  "strokeWidth": 3.0
+                }
+              }
+            }
+          },
+          "tag": "Widget Function()",
+          "rt": "Widget"
+        },
+        "falseValue": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Padding",
+            "na": {
+              "padding": {
+                "className": "EdgeInsets.all",
+                "pa": [
+                  8.0
+                ]
+              },
+              "child": {
+                "className": "Column",
+                "na": {
+                  "mainAxisAlignment": "#(MainAxisAlignment.start)",
+                  "crossAxisAlignment": "#(CrossAxisAlignment.start)",
+                  "children": [
+                    {
+                      "className": "Padding",
+                      "na": {
+                        "padding": {
+                          "className": "EdgeInsets.only",
+                          "na": {
+                            "left": 11,
+                            "right": 11,
+                            "bottom": 11
+                          }
+                        },
+                        "child": {
+                          "className": "Wrap",
+                          "na": {
+                            "runSpacing": 5.0,
+                            "spacing": 5.0,
+                            "children": {
+                              "className": "Sugar.mapEach",
+                              "pa": [
+                                {
+                                  "className": "SugarIterable.toList",
+                                  "pa": [
+                                    {
+                                      "className": "SugarIterable.take",
+                                      "pa": [
+                                        "%(_getValue(tags,[111]))",
+                                        6
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "className": "FairFunction",
+                                  "body": {
+                                    "className": "Container",
+                                    "na": {
+                                      "padding": {
+                                        "className": "EdgeInsets.all",
+                                        "pa": [
+                                          3.0
+                                        ]
+                                      },
+                                      "decoration": {
+                                        "className": "BoxDecoration",
+                                        "na": {
+                                          "color": {
+                                            "className": "SugarCommon.getRandomColor",
+                                            "pa": [
+                                              "^(index)"
+                                            ]
+                                          },
+                                          "border": {
+                                            "className": "Border.all",
+                                            "na": {
+                                              "color": {
+                                                "className": "Sugar.colorsWithOpacity",
+                                                "pa": [
+                                                  "#(Colors.grey)",
+                                                  0.4
+                                                ]
+                                              },
+                                              "width": 1.0
+                                            }
+                                          },
+                                          "borderRadius": {
+                                            "className": "BorderRadius.all",
+                                            "pa": [
+                                              {
+                                                "className": "Radius.circular",
+                                                "pa": [
+                                                  5.0
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "child": {
+                                        "className": "Text",
+                                        "pa": [
+                                          "#($item)"
+                                        ],
+                                        "na": {
+                                          "textAlign": "#(TextAlign.start)",
+                                          "style": {
+                                            "className": "TextStyle",
+                                            "na": {
+                                              "fontSize": 12,
+                                              "color": {
+                                                "className": "SugarCommon.getLuminanceColor",
+                                                "pa": [
+                                                  {
+                                                    "className": "SugarCommon.colorComputeLuminance",
+                                                    "pa": [
+                                                      {
+                                                        "className": "SugarCommon.getRandomColor",
+                                                        "pa": [
+                                                          "^(index)"
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "parameters": {
+                                    "pa": [
+                                      "index",
+                                      "item"
+                                    ]
+                                  },
+                                  "tag": "Widget Function(int, Object?)",
+                                  "rt": "Widget"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "tag": "Widget Function()",
+          "rt": "Widget"
+        }
+      }
+    }
+  },
+  "methodMap": {}
+}

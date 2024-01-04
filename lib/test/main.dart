@@ -1,5 +1,6 @@
+import 'dart:convert';
+
 import 'package:fair/fair.dart';
-import 'package:ff_annotation_route_library/ff_annotation_route_library.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fair_version/src/widgets/version.dart' as fair_version;
 import 'package:demo/test/lib/generated_m/flutter.bindings.dart' as local_version;
@@ -30,12 +31,12 @@ void main() {
   FairApp.runApplication(
       FairApp(
         generated: FairAppGeneratedModule(),
-        child: const MyApp(),
         delegate: FairDelegateBase.delegates,
         dynamicWidgetBuilder: (proxyMirror, page, bound, {bundle}) =>
             CustomDynamicWidgetBuilder(proxyMirror, page, bound,
                 bundle: bundle),
         bundleProvider: CustomFairBundleLoader(),
+        child:  const MyApp(),
       ),
       plugins: <String, IFairPlugin>{'FairCommonPlugin': FairCommonPlugin()});
 }
@@ -55,7 +56,12 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         navigatorKey: MyApp.navigatorKey,
-          home:FairWidget()
+        home:FairWidget(
+          path: "assets/bundle/lib_test_lib_page_demo_page.fair.json",
+            data: {
+              'fairProps': jsonEncode({'title': '你好'})
+            }
+        )
       ),
     );
   }

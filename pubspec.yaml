@@ -28,9 +28,18 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
+  font_awesome_flutter: ^10.1.0
+  smooth_star_rating_nsafe: ^1.0.0+1
+  intl: ^0.17.0
+  dio: ^5.0.3
   build_runner: 2.3.3
-  ff_annotation_route_library: ^3.0.0
+  ff_annotation_route: ^10.0.10
   oktoast: ^3.4.0
+  ff_annotation_route_core: ^2.0.7
+  # add only for a project
+  ff_annotation_route_library: ^3.0.0
+
 
   flutter:
     sdk: flutter

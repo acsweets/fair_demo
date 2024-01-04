@@ -1,6 +1,6 @@
 import 'package:fair/fair.dart';
-import 'package:demo/src/generated_module/flutter.bindings.dart';
 
+import 'package:demo/test/lib/generated_m/flutter.bindings.dart';
 import 'generated_module/app.bindings.dart';
 
 class FairAppGeneratedModule extends GeneratedModule {
