@@ -1,6 +1,6 @@
 let FairCommonPlugin = function () {
     return {
-        showToast: function (resp) {
+       showMessageToast: function (resp) {
                    fairCommonPluginRequest(resp, 'showMessageToast');
               },
              futureComplete: function (resp) {

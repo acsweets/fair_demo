@@ -12,13 +12,14 @@ import 'custom_dynamic.dart';
   'package:demo/widget/radius_inkwell_widget.dart',
 ])
 void main() {
+
   // runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
 
   ///替换掉 Fair 默认的 FairJSDecoder。
-  FairJSDecoder.resolve = (String? jsPath) async {
-    return CustomFairJSDecoder().decode(jsPath);
-  };
+  // FairJSDecoder.resolve = (String? jsPath) async {
+  //   return CustomFairJSDecoder().decode(jsPath);
+  // };
 
   FairApp.runApplication(
       FairApp(

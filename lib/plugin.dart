@@ -197,7 +197,16 @@ mixin NavigatorPlugin implements FairCommonPluginMixin {
   );
 }
 
-
+mixin ToastPlugin implements FairCommonPluginMixin {
+  Future<dynamic> showMessageToast(dynamic map) => request(
+    map,
+        (dynamic requestMap) async {
+      final msg = requestMap['msg'];
+      showToast(text: msg);
+      return null;
+    },
+  );
+}
 /// ListenableScopePlugin
 mixin ListenableScopePlugin implements FairCommonPluginMixin {
   Future<dynamic> scrollController(dynamic map) => request(
@@ -392,16 +401,7 @@ mixin ListenableScopePlugin implements FairCommonPluginMixin {
   );
 }
 
-mixin ToastPlugin implements FairCommonPluginMixin {
-  Future<dynamic> showToast(dynamic map) => request(
-    map,
-        (dynamic requestMap) async {
-      final msg = requestMap['msg'];
-      oktoast.showToast(msg);
-      return null;
-    },
-  );
-}
+
 
 
 mixin DebugPlugin implements FairCommonPluginMixin {
