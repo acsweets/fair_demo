@@ -21,6 +21,9 @@ void main() {
   //   return CustomFairJSDecoder().decode(jsPath);
   // };
 
+
+
+
   FairApp.runApplication(
       FairApp(
         child: MyApp(),
