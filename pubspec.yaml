@@ -44,14 +44,18 @@ dependencies:
   flutter:
     sdk: flutter
   fair:
-      path: ../../fair-zmtzawqlp/fair
+#      path: ../../fair-zmtzawqlp/fair
+    path: ../../fair-fixed/fair
+
   fair_compiler:
-    git:
-      url: https://github.com/wuba/Fair.git
-      ref: fair-release-zmtzawqlp
-      # url: https://github.com/zmtzawqlp/fair.git
-      # ref: fixed
-      path: compiler
+    path: ../../fair-fixed/compiler
+
+#    git:
+#      url: https://github.com/wuba/Fair.git
+#      ref: fair-release-zmtzawqlp
+#      # url: https://github.com/zmtzawqlp/fair.git
+#      # ref: fixed
+#      path: compiler
   bot_toast: ^4.1.3
 
 
@@ -122,12 +126,12 @@ dependency_overrides:
 #    path: ../../Fair/flutter_version/flutter_3_13_0
 
   fair_version:
-      path: ../../fair-zmtzawqlp/flutter_version/flutter_mock
+      path: ../../fair-fixed/flutter_version/flutter_mock
   fair_dart2dsl:
-    path: ../../fair-zmtzawqlp/dart2dsl
+    path: ../../fair-fixed/dart2dsl
 
   fair_dart2js:
-    path: ../../fair-zmtzawqlp/dart2js
+    path: ../../fair-fixed/dart2js
 
   ffi: ^1.1.2
   http: ^1.0.0
