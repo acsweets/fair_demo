@@ -17,30 +17,41 @@
       "na": {
         "itemCount": 2,
         "itemBuilder": {
-          "className": "Center",
-          "na": {
-            "child": {
-              "className": "GestureDetector",
-              "na": {
-                "onTap": "@(showToast)",
-                "child": {
-                  "className": "Text",
-                  "pa": [
-                    "TestPage"
-                  ]
+          "className": "FairFunction",
+          "body": {
+            "className": "Center",
+            "na": {
+              "child": {
+                "className": "GestureDetector",
+                "na": {
+                  "onTap": {
+                    "className": "FairFunction",
+                    "body": "",
+                    "tag": "void Function()",
+                    "rt": "void"
+                  },
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "TestPage"
+                    ]
+                  }
                 }
               }
             }
           },
-          "functionParameters": {
+          "parameters": {
             "pa": [
               "context",
               "index"
             ]
-          }
+          },
+          "tag": "Widget Function(BuildContext, int)",
+          "rt": "Widget"
         }
       }
     }
   },
-  "methodMap": {}
+  "methodMap": {},
+  "digest": "73c438b71f3fb0462af79f62bc1e0261"
 }

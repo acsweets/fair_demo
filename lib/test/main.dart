@@ -33,14 +33,12 @@ void main() {
         generated: FairAppGeneratedModule(),
         delegate: FairDelegateBase.delegates,
         dynamicWidgetBuilder: (proxyMirror, page, bound, {bundle}) =>
-            CustomDynamicWidgetBuilder(proxyMirror, page, bound,
-                bundle: bundle),
+            CustomDynamicWidgetBuilder(proxyMirror, page, bound, bundle: bundle),
         bundleProvider: CustomFairBundleLoader(),
-        child:  const MyApp(),
+        child: const MyApp(),
       ),
       plugins: <String, IFairPlugin>{'FairCommonPlugin': FairCommonPlugin()});
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -51,18 +49,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OKToast(
       child: MaterialApp(
-        title: 'FairGallery',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        navigatorKey: MyApp.navigatorKey,
-        home:FairWidget(
-          path: "assets/bundle/lib_test_lib_page_demo_page.fair.json",
-            data: {
-              'fairProps': jsonEncode({'title': '你好'})
-            }
-        )
-      ),
+          title: 'FairGallery',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          navigatorKey: MyApp.navigatorKey,
+          // home:FairWidget(
+          //   path: "assets/bundle/lib_test_lib_page_demo_page.fair.json",
+          //     data: {
+          //       'fairProps': jsonEncode({'title': '你好'})
+          //     }
+          // )
+          home: Scaffold(
+            appBar: AppBar(title: Text("标题"),
+            ),body:Container(
+            child: FairWidget(
+              path: "assets/bundle/lib_deom.fair.js",
+            ),
+          )
+          )),
     );
   }
 }

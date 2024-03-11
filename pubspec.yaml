@@ -34,9 +34,7 @@ dependencies:
   intl: ^0.17.0
   dio: ^5.0.3
   build_runner: 2.3.3
-  ff_annotation_route: ^10.0.10
   oktoast: ^3.4.0
-  ff_annotation_route_core: ^2.0.7
   # add only for a project
   ff_annotation_route_library: ^3.0.0
 
