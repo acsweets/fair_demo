@@ -1,0 +1,53 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar",
+      "na": {
+        "title": {
+          "className": "Text",
+          "pa": [
+            "语法糖的例子"
+          ]
+        }
+      }
+    },
+    "body": {
+      "className": "Sugar.ifEqual",
+      "pa": [
+        "^(random)",
+        6
+      ],
+      "na": {
+        "trueValue": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Container",
+            "na": {
+              "color": "#(Colors.greenAccent)",
+              "width": 200,
+              "height": 10
+            }
+          },
+          "tag": "Widget Function()",
+          "rt": "Widget"
+        },
+        "falseValue": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Container",
+            "na": {
+              "color": "#(Colors.red)",
+              "width": 200,
+              "height": 10
+            }
+          },
+          "tag": "Widget Function()",
+          "rt": "Widget"
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "4522d62f9a932cea341d58b6e610bd54"
+}

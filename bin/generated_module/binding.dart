@@ -15,6 +15,7 @@
 // // 项目中的文件
 // import 'package:fair_gallery/src/sugar/common.dart';
 import 'package:demo/src/sugar/dart_core.dart';
+import 'package:demo/test/lib/sugar/common.dart';
 // import 'package:fair_gallery/src/sugar/extension.dart';
 // import 'package:fair_gallery/assets.dart';
 // import 'package:fair_gallery/src/widget/extended_fair_widget.dart';

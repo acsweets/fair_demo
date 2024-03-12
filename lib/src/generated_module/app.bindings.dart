@@ -1,16 +1,17 @@
-// flutterVersion = '3.16.0'
-// dartVersion = '3.2.0'
+// flutterVersion = '3.19.3'
+// dartVersion = '3.3.1'
 // widgetCount = 0
-// apiCount = 8
+// apiCount = 233
 // ignore_for_file: unused_import, unnecessary_import, implementation_imports, unused_shown_name, deprecated_member_use, prefer_single_quotes, unused_element, unused_field, duplicate_import, prefer_const_constructors, invalid_use_of_visible_for_testing_member
 import 'package:flutter/material.dart';
 import 'package:demo/src/sugar/dart_core.dart';
+import 'package:demo/test/lib/sugar/common.dart';
 import 'package:fair/fair.dart';
 
-const String flutterVersion = '3.16.0';
-const String dartVersion = '3.2.0';
+const String flutterVersion = '3.19.3';
+const String dartVersion = '3.3.1';
 const int widgetCount = 0;
-const int apiCount = 8;
+const int apiCount = 233;
 
 /// appComponents
 Map<String, dynamic> appComponents = {
@@ -25,6 +26,23 @@ Map<String, dynamic> appComponents = {
       caseSensitive: props['caseSensitive'] ?? true),
   'SugarBool.tryParse': (props) => SugarBool.tryParse(props['pa'][0],
       caseSensitive: props['caseSensitive'] ?? true),
+  'SugarCommon.colorComputeLuminance': (props) =>
+      SugarCommon.colorComputeLuminance(props['pa'][0]),
+  'SugarCommon.dartObjectToMap': (props) =>
+      SugarCommon.dartObjectToMap(props['pa'][0]),
+  'SugarCommon.getLuminanceColor': (props) =>
+      SugarCommon.getLuminanceColor(props['pa'][0]?.toDouble()),
+  'SugarCommon.getRandomColor': (props) =>
+      SugarCommon.getRandomColor(props['pa'][0]),
+  'SugarCommon.isNull': (props) => SugarCommon.isNull(props['pa'][0]),
+  'SugarCommon.mapForEachToList': (props) =>
+      SugarCommon.mapForEachToList(props['pa'][0], props['pa'][1]),
+  'SugarCommon.nullOrDefault': (props) =>
+      SugarCommon.nullOrDefault(props['pa'][0], props['pa'][1]),
+  'SugarCommon.returnContainer': (props) =>
+      SugarCommon.returnContainer(props['pa'][0]),
+  'SugarCommon.voidCallBack': (props) => SugarCommon.voidCallBack(
+      function: props['function'], value: props['value']),
   'SugarDouble.abs': (props) => SugarDouble.abs(props['pa'][0]?.toDouble()),
   'SugarDouble.adds': (props) =>
       SugarDouble.adds(props['pa'][0]?.toDouble(), props['pa'][1]),
@@ -134,15 +152,19 @@ Map<String, dynamic> appComponents = {
       SugarIterable.isNotEmpty(props['pa'][0]),
   'SugarIterable.iterableToFullString': (props) =>
       SugarIterable.iterableToFullString(
-          props['pa'][0], props['pa'][1] ?? '(', props['pa'][2] ?? ')'),
+          props['pa'][0],
+          (props['pa'].length > 1 ? props['pa'][1] : null) ?? '(',
+          (props['pa'].length > 2 ? props['pa'][2] : null) ?? ')'),
   'SugarIterable.iterableToShortString': (props) =>
       SugarIterable.iterableToShortString(
-          props['pa'][0], props['pa'][1] ?? '(', props['pa'][2] ?? ')'),
+          props['pa'][0],
+          (props['pa'].length > 1 ? props['pa'][1] : null) ?? '(',
+          (props['pa'].length > 2 ? props['pa'][2] : null) ?? ')'),
   'SugarIterable.iterableToString': (props) =>
       SugarIterable.iterableToString(props['pa'][0]),
   'SugarIterable.iterator': (props) => SugarIterable.iterator(props['pa'][0]),
-  'SugarIterable.join': (props) =>
-      SugarIterable.join(props['pa'][0], props['pa'][1] ?? ""),
+  'SugarIterable.join': (props) => SugarIterable.join(
+      props['pa'][0], (props['pa'].length > 1 ? props['pa'][1] : null) ?? ""),
   'SugarIterable.last': (props) => SugarIterable.last(props['pa'][0]),
   'SugarIterable.lastWhere': (props) => SugarIterable.lastWhere(
       props['pa'][0], props['pa'][1],
@@ -178,14 +200,21 @@ Map<String, dynamic> appComponents = {
   'SugarList.cast': (props) => SugarList.cast(props['pa'][0]),
   'SugarList.castFrom': (props) => SugarList.castFrom(props['pa'][0]),
   'SugarList.clear': (props) => SugarList.clear(props['pa'][0]),
-  'SugarList.copyRange': (props) => SugarList.copyRange(props['pa'][0],
-      props['pa'][1], props['pa'][2], props['pa'][3], props['pa'][4]),
+  'SugarList.copyRange': (props) => SugarList.copyRange(
+      props['pa'][0],
+      props['pa'][1],
+      props['pa'][2],
+      (props['pa'].length > 3 ? props['pa'][3] : null),
+      (props['pa'].length > 4 ? props['pa'][4] : null)),
   'SugarList.empty': (props) =>
       SugarList.empty(growable: props['growable'] ?? false),
   'SugarList.equalTo': (props) =>
       SugarList.equalTo(props['pa'][0], props['pa'][1]),
   'SugarList.fillRange': (props) => SugarList.fillRange(
-      props['pa'][0], props['pa'][1], props['pa'][2], props['pa'][3]),
+      props['pa'][0],
+      props['pa'][1],
+      props['pa'][2],
+      (props['pa'].length > 3 ? props['pa'][3] : null)),
   'SugarList.filled': (props) => SugarList.filled(
       props['pa'][0], props['pa'][1],
       growable: props['growable'] ?? false),
@@ -197,18 +226,20 @@ Map<String, dynamic> appComponents = {
   'SugarList.get': (props) => SugarList.get(props['pa'][0], props['pa'][1]),
   'SugarList.getRange': (props) =>
       SugarList.getRange(props['pa'][0], props['pa'][1], props['pa'][2]),
-  'SugarList.indexOf': (props) =>
-      SugarList.indexOf(props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
-  'SugarList.indexWhere': (props) =>
-      SugarList.indexWhere(props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+  'SugarList.indexOf': (props) => SugarList.indexOf(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
+  'SugarList.indexWhere': (props) => SugarList.indexWhere(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarList.insert': (props) =>
       SugarList.insert(props['pa'][0], props['pa'][1], props['pa'][2]),
   'SugarList.insertAll': (props) =>
       SugarList.insertAll(props['pa'][0], props['pa'][1], props['pa'][2]),
-  'SugarList.lastIndexOf': (props) => SugarList.lastIndexOf(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+  'SugarList.lastIndexOf': (props) => SugarList.lastIndexOf(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarList.lastIndexWhere': (props) => SugarList.lastIndexWhere(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+      props['pa'][0],
+      props['pa'][1],
+      (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarList.length': (props) => SugarList.length(props['pa'][0]),
   'SugarList.of': (props) =>
       SugarList.of(props['pa'][0], growable: props['growable'] ?? true),
@@ -230,13 +261,18 @@ Map<String, dynamic> appComponents = {
       SugarList.set(props['pa'][0], props['pa'][1], props['pa'][2]),
   'SugarList.setAll': (props) =>
       SugarList.setAll(props['pa'][0], props['pa'][1], props['pa'][2]),
-  'SugarList.setRange': (props) => SugarList.setRange(props['pa'][0],
-      props['pa'][1], props['pa'][2], props['pa'][3], props['pa'][4] ?? 0),
-  'SugarList.shuffle': (props) =>
-      SugarList.shuffle(props['pa'][0], props['pa'][1]),
-  'SugarList.sort': (props) => SugarList.sort(props['pa'][0], props['pa'][1]),
-  'SugarList.sublist': (props) =>
-      SugarList.sublist(props['pa'][0], props['pa'][1], props['pa'][2]),
+  'SugarList.setRange': (props) => SugarList.setRange(
+      props['pa'][0],
+      props['pa'][1],
+      props['pa'][2],
+      props['pa'][3],
+      (props['pa'].length > 4 ? props['pa'][4] : null) ?? 0),
+  'SugarList.shuffle': (props) => SugarList.shuffle(
+      props['pa'][0], (props['pa'].length > 1 ? props['pa'][1] : null)),
+  'SugarList.sort': (props) => SugarList.sort(
+      props['pa'][0], (props['pa'].length > 1 ? props['pa'][1] : null)),
+  'SugarList.sublist': (props) => SugarList.sublist(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null)),
   'SugarList.unmodifiable': (props) => SugarList.unmodifiable(props['pa'][0]),
   'SugarList.writeIterable': (props) =>
       SugarList.writeIterable(props['pa'][0], props['pa'][1], props['pa'][2]),
@@ -297,7 +333,8 @@ Map<String, dynamic> appComponents = {
       SugarNum.multiplies(props['pa'][0], props['pa'][1]),
   'SugarNum.negation': (props) => SugarNum.negation(props['pa'][0]),
   'SugarNum.numToString': (props) => SugarNum.numToString(props['pa'][0]),
-  'SugarNum.parse': (props) => SugarNum.parse(props['pa'][0], props['pa'][1]),
+  'SugarNum.parse': (props) => SugarNum.parse(
+      props['pa'][0], (props['pa'].length > 1 ? props['pa'][1] : null)),
   'SugarNum.remainder': (props) =>
       SugarNum.remainder(props['pa'][0], props['pa'][1]),
   'SugarNum.round': (props) => SugarNum.round(props['pa'][0]),
@@ -311,8 +348,8 @@ Map<String, dynamic> appComponents = {
       SugarNum.subtracts(props['pa'][0], props['pa'][1]),
   'SugarNum.toDouble': (props) => SugarNum.toDouble(props['pa'][0]),
   'SugarNum.toInt': (props) => SugarNum.toInt(props['pa'][0]),
-  'SugarNum.toStringAsExponential': (props) =>
-      SugarNum.toStringAsExponential(props['pa'][0], props['pa'][1]),
+  'SugarNum.toStringAsExponential': (props) => SugarNum.toStringAsExponential(
+      props['pa'][0], (props['pa'].length > 1 ? props['pa'][1] : null)),
   'SugarNum.toStringAsFixed': (props) =>
       SugarNum.toStringAsFixed(props['pa'][0], props['pa'][1]),
   'SugarNum.toStringAsPrecision': (props) =>
@@ -330,35 +367,41 @@ Map<String, dynamic> appComponents = {
       SugarString.compareTo(props['pa'][0], props['pa'][1]),
   'SugarString.concatenates': (props) =>
       SugarString.concatenates(props['pa'][0], props['pa'][1]),
-  'SugarString.contains': (props) =>
-      SugarString.contains(props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+  'SugarString.contains': (props) => SugarString.contains(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarString.endsWith': (props) =>
       SugarString.endsWith(props['pa'][0], props['pa'][1]),
   'SugarString.equalTo': (props) =>
       SugarString.equalTo(props['pa'][0], props['pa'][1]),
   'SugarString.getChar': (props) =>
       SugarString.getChar(props['pa'][0], props['pa'][1]),
-  'SugarString.indexOf': (props) =>
-      SugarString.indexOf(props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+  'SugarString.indexOf': (props) => SugarString.indexOf(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarString.isEmpty': (props) => SugarString.isEmpty(props['pa'][0]),
   'SugarString.isNotEmpty': (props) => SugarString.isNotEmpty(props['pa'][0]),
-  'SugarString.lastIndexOf': (props) => SugarString.lastIndexOf(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
+  'SugarString.lastIndexOf': (props) => SugarString.lastIndexOf(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
   'SugarString.length': (props) => SugarString.length(props['pa'][0]),
   'SugarString.multipliedConcatenates': (props) =>
       SugarString.multipliedConcatenates(props['pa'][0], props['pa'][1]),
-  'SugarString.padLeft': (props) => SugarString.padLeft(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? ' '),
-  'SugarString.padRight': (props) => SugarString.padRight(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? ' '),
+  'SugarString.padLeft': (props) => SugarString.padLeft(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? ' '),
+  'SugarString.padRight': (props) => SugarString.padRight(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? ' '),
   'SugarString.replaceAll': (props) =>
       SugarString.replaceAll(props['pa'][0], props['pa'][1], props['pa'][2]),
   'SugarString.replaceAllMapped': (props) => SugarString.replaceAllMapped(
       props['pa'][0], props['pa'][1], props['pa'][2]),
   'SugarString.replaceFirst': (props) => SugarString.replaceFirst(
-      props['pa'][0], props['pa'][1], props['pa'][2], props['pa'][3] ?? 0),
+      props['pa'][0],
+      props['pa'][1],
+      props['pa'][2],
+      (props['pa'].length > 3 ? props['pa'][3] : null) ?? 0),
   'SugarString.replaceFirstMapped': (props) => SugarString.replaceFirstMapped(
-      props['pa'][0], props['pa'][1], props['pa'][2], props['pa'][3] ?? 0),
+      props['pa'][0],
+      props['pa'][1],
+      props['pa'][2],
+      (props['pa'].length > 3 ? props['pa'][3] : null) ?? 0),
   'SugarString.replaceRange': (props) => SugarString.replaceRange(
       props['pa'][0], props['pa'][1], props['pa'][2], props['pa'][3]),
   'SugarString.runes': (props) => SugarString.runes(props['pa'][0]),
@@ -367,10 +410,10 @@ Map<String, dynamic> appComponents = {
   'SugarString.splitMapJoin': (props) => SugarString.splitMapJoin(
       props['pa'][0], props['pa'][1],
       onMatch: props['onMatch'], onNonMatch: props['onNonMatch']),
-  'SugarString.startsWith': (props) => SugarString.startsWith(
-      props['pa'][0], props['pa'][1], props['pa'][2] ?? 0),
-  'SugarString.substring': (props) =>
-      SugarString.substring(props['pa'][0], props['pa'][1], props['pa'][2]),
+  'SugarString.startsWith': (props) => SugarString.startsWith(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null) ?? 0),
+  'SugarString.substring': (props) => SugarString.substring(props['pa'][0],
+      props['pa'][1], (props['pa'].length > 2 ? props['pa'][2] : null)),
   'SugarString.toLowerCase': (props) => SugarString.toLowerCase(props['pa'][0]),
   'SugarString.toUpperCase': (props) => SugarString.toUpperCase(props['pa'][0]),
   'SugarString.trim': (props) => SugarString.trim(props['pa'][0]),
@@ -380,12 +423,237 @@ Map<String, dynamic> appComponents = {
 
 /// appMapping
 Map<String, bool> appMapping = {
-  'SugarBool': false,
-  'SugarDouble': false,
-  'SugarInt': false,
-  'SugarIterable': false,
-  'SugarList': false,
-  'SugarMap': false,
-  'SugarNum': false,
-  'SugarString': false,
+  'SugarBool.and': false,
+  'SugarBool.boolToString': false,
+  'SugarBool.exclusiveOr': false,
+  'SugarBool.inclusiveOr': false,
+  'SugarBool.invert': false,
+  'SugarBool.parse': false,
+  'SugarBool.tryParse': false,
+  'SugarCommon.colorComputeLuminance': false,
+  'SugarCommon.dartObjectToMap': false,
+  'SugarCommon.getLuminanceColor': false,
+  'SugarCommon.getRandomColor': false,
+  'SugarCommon.isNull': false,
+  'SugarCommon.mapForEachToList': false,
+  'SugarCommon.nullOrDefault': false,
+  'SugarCommon.returnContainer': false,
+  'SugarCommon.voidCallBack': false,
+  'SugarDouble.abs': false,
+  'SugarDouble.adds': false,
+  'SugarDouble.ceil': false,
+  'SugarDouble.ceilToDouble': false,
+  'SugarDouble.divides': false,
+  'SugarDouble.doubleToString': false,
+  'SugarDouble.euclideanModulo': false,
+  'SugarDouble.floor': false,
+  'SugarDouble.floorToDouble': false,
+  'SugarDouble.infinity': false,
+  'SugarDouble.maxFinite': false,
+  'SugarDouble.minPositive': false,
+  'SugarDouble.multiplies': false,
+  'SugarDouble.nan': false,
+  'SugarDouble.negation': false,
+  'SugarDouble.negativeInfinity': false,
+  'SugarDouble.parse': false,
+  'SugarDouble.remainder': false,
+  'SugarDouble.round': false,
+  'SugarDouble.roundToDouble': false,
+  'SugarDouble.sign': false,
+  'SugarDouble.subtracts': false,
+  'SugarDouble.truncate': false,
+  'SugarDouble.truncateToDouble': false,
+  'SugarDouble.truncatingDivision': false,
+  'SugarDouble.tryParse': false,
+  'SugarInt.abs': false,
+  'SugarInt.and': false,
+  'SugarInt.bitLength': false,
+  'SugarInt.ceil': false,
+  'SugarInt.ceilToDouble': false,
+  'SugarInt.exclusiveOr': false,
+  'SugarInt.floor': false,
+  'SugarInt.floorToDouble': false,
+  'SugarInt.gcd': false,
+  'SugarInt.intToString': false,
+  'SugarInt.isEven': false,
+  'SugarInt.isOdd': false,
+  'SugarInt.leftShift': false,
+  'SugarInt.modInverse': false,
+  'SugarInt.modPow': false,
+  'SugarInt.negate': false,
+  'SugarInt.negation': false,
+  'SugarInt.or': false,
+  'SugarInt.parse': false,
+  'SugarInt.rightShift': false,
+  'SugarInt.round': false,
+  'SugarInt.roundToDouble': false,
+  'SugarInt.sign': false,
+  'SugarInt.toRadixString': false,
+  'SugarInt.toSigned': false,
+  'SugarInt.toUnsigned': false,
+  'SugarInt.truncate': false,
+  'SugarInt.truncateToDouble': false,
+  'SugarInt.tryParse': false,
+  'SugarInt.unsignedRightShift': false,
+  'SugarIterable.any': false,
+  'SugarIterable.cast': false,
+  'SugarIterable.castFrom': false,
+  'SugarIterable.contains': false,
+  'SugarIterable.elementAt': false,
+  'SugarIterable.every': false,
+  'SugarIterable.expand': false,
+  'SugarIterable.first': false,
+  'SugarIterable.firstWhere': false,
+  'SugarIterable.fold': false,
+  'SugarIterable.followedBy': false,
+  'SugarIterable.forEach': false,
+  'SugarIterable.isEmpty': false,
+  'SugarIterable.isNotEmpty': false,
+  'SugarIterable.iterableToFullString': false,
+  'SugarIterable.iterableToShortString': false,
+  'SugarIterable.iterableToString': false,
+  'SugarIterable.iterator': false,
+  'SugarIterable.join': false,
+  'SugarIterable.last': false,
+  'SugarIterable.lastWhere': false,
+  'SugarIterable.length': false,
+  'SugarIterable.map': false,
+  'SugarIterable.reduce': false,
+  'SugarIterable.single': false,
+  'SugarIterable.singleWhere': false,
+  'SugarIterable.skip': false,
+  'SugarIterable.skipWhile': false,
+  'SugarIterable.take': false,
+  'SugarIterable.takeWhile': false,
+  'SugarIterable.toList': false,
+  'SugarIterable.toSet': false,
+  'SugarIterable.where': false,
+  'SugarIterable.whereType': false,
+  'SugarList.add': false,
+  'SugarList.addAll': false,
+  'SugarList.adds': false,
+  'SugarList.asMap': false,
+  'SugarList.cast': false,
+  'SugarList.castFrom': false,
+  'SugarList.clear': false,
+  'SugarList.copyRange': false,
+  'SugarList.empty': false,
+  'SugarList.equalTo': false,
+  'SugarList.fillRange': false,
+  'SugarList.filled': false,
+  'SugarList.from': false,
+  'SugarList.generate': false,
+  'SugarList.get': false,
+  'SugarList.getRange': false,
+  'SugarList.indexOf': false,
+  'SugarList.indexWhere': false,
+  'SugarList.insert': false,
+  'SugarList.insertAll': false,
+  'SugarList.lastIndexOf': false,
+  'SugarList.lastIndexWhere': false,
+  'SugarList.length': false,
+  'SugarList.of': false,
+  'SugarList.remove': false,
+  'SugarList.removeAt': false,
+  'SugarList.removeLast': false,
+  'SugarList.removeRange': false,
+  'SugarList.removeWhere': false,
+  'SugarList.replaceRange': false,
+  'SugarList.retainWhere': false,
+  'SugarList.reversed': false,
+  'SugarList.set': false,
+  'SugarList.setAll': false,
+  'SugarList.setRange': false,
+  'SugarList.shuffle': false,
+  'SugarList.sort': false,
+  'SugarList.sublist': false,
+  'SugarList.unmodifiable': false,
+  'SugarList.writeIterable': false,
+  'SugarMap.addAll': false,
+  'SugarMap.addEntries': false,
+  'SugarMap.clear': false,
+  'SugarMap.containsKey': false,
+  'SugarMap.containsValue': false,
+  'SugarMap.entries': false,
+  'SugarMap.forEach': false,
+  'SugarMap.get': false,
+  'SugarMap.isEmpty': false,
+  'SugarMap.isNotEmpty': false,
+  'SugarMap.keys': false,
+  'SugarMap.length': false,
+  'SugarMap.putIfAbsent': false,
+  'SugarMap.remove': false,
+  'SugarMap.removeWhere': false,
+  'SugarMap.set': false,
+  'SugarMap.update': false,
+  'SugarMap.updateAll': false,
+  'SugarMap.values': false,
+  'SugarNum.abs': false,
+  'SugarNum.adds': false,
+  'SugarNum.ceil': false,
+  'SugarNum.ceilToDouble': false,
+  'SugarNum.clamp': false,
+  'SugarNum.compareTo': false,
+  'SugarNum.divides': false,
+  'SugarNum.equalTo': false,
+  'SugarNum.euclideanModulo': false,
+  'SugarNum.floor': false,
+  'SugarNum.floorToDouble': false,
+  'SugarNum.greaterThan': false,
+  'SugarNum.greaterThanOrEqualTo': false,
+  'SugarNum.isFinite': false,
+  'SugarNum.isInfinite': false,
+  'SugarNum.isNaN': false,
+  'SugarNum.isNegative': false,
+  'SugarNum.multiplies': false,
+  'SugarNum.negation': false,
+  'SugarNum.numToString': false,
+  'SugarNum.parse': false,
+  'SugarNum.remainder': false,
+  'SugarNum.round': false,
+  'SugarNum.roundToDouble': false,
+  'SugarNum.sign': false,
+  'SugarNum.smallerThan': false,
+  'SugarNum.smallerThanOrEqualTo': false,
+  'SugarNum.subtracts': false,
+  'SugarNum.toDouble': false,
+  'SugarNum.toInt': false,
+  'SugarNum.toStringAsExponential': false,
+  'SugarNum.toStringAsFixed': false,
+  'SugarNum.toStringAsPrecision': false,
+  'SugarNum.truncate': false,
+  'SugarNum.truncateToDouble': false,
+  'SugarNum.truncatingDivision': false,
+  'SugarNum.tryParse': false,
+  'SugarString.codeUnitAt': false,
+  'SugarString.codeUnits': false,
+  'SugarString.compareTo': false,
+  'SugarString.concatenates': false,
+  'SugarString.contains': false,
+  'SugarString.endsWith': false,
+  'SugarString.equalTo': false,
+  'SugarString.getChar': false,
+  'SugarString.indexOf': false,
+  'SugarString.isEmpty': false,
+  'SugarString.isNotEmpty': false,
+  'SugarString.lastIndexOf': false,
+  'SugarString.length': false,
+  'SugarString.multipliedConcatenates': false,
+  'SugarString.padLeft': false,
+  'SugarString.padRight': false,
+  'SugarString.replaceAll': false,
+  'SugarString.replaceAllMapped': false,
+  'SugarString.replaceFirst': false,
+  'SugarString.replaceFirstMapped': false,
+  'SugarString.replaceRange': false,
+  'SugarString.runes': false,
+  'SugarString.split': false,
+  'SugarString.splitMapJoin': false,
+  'SugarString.startsWith': false,
+  'SugarString.substring': false,
+  'SugarString.toLowerCase': false,
+  'SugarString.toUpperCase': false,
+  'SugarString.trim': false,
+  'SugarString.trimLeft': false,
+  'SugarString.trimRight': false,
 };

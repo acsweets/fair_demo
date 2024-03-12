@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(title: Text("标题"),
             ),body:Container(
             child: FairWidget(
-              path: "assets/bundle/lib_deom.fair.js",
+              path: "assets/bundle/lib_test_lib_page_sugar.fair.json",
             ),
           )
           )),

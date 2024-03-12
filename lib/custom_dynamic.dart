@@ -12,6 +12,7 @@ class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder {
   @override
   dynamic convert(BuildContext context, Map map, Map? methodMap, {Domain? domain}) {
     var name = map[tag];
+    print("tag 名 $name");
     return super.convert(context, map, methodMap, domain: domain);
   }
 }
