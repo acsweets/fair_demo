@@ -1,12 +1,13 @@
 // flutterVersion = '3.19.3'
 // dartVersion = '3.3.1'
-// functionCount = 18
+// functionCount = 20
 // ignore_for_file: deprecated_member_use, prefer_single_quotes, unused_element, unused_field, unused_import, unnecessary_import, implementation_imports, unused_shown_name, prefer_function_declarations_over_variables, void_checks, duplicate_import, no_duplicate_case_values
 import 'package:flutter/material.dart';
 import 'package:demo/src/sugar/dart_core.dart';
 import 'package:demo/test/lib/sugar/common.dart';
 import 'package:demo/assets.dart';
 import 'package:demo/widget/input_box.dart';
+import 'package:demo/widget/radius_inkwell_widget.dart';
 import 'package:fair/fair.dart';
 
 /// AppFunctionDynamicWidgetBuilder
@@ -233,6 +234,34 @@ mixin AppFunctionDynamicWidgetBuilder on DynamicWidgetBuilder {
         case 'num Function(String)':
           List functionPaParameters = FunctionDomain.pa(map);
           num Function(String) builder = (p0) {
+            return pa0Value(
+              FunctionDomain.getBody(map),
+              methodMap,
+              context,
+              FunctionDomain(
+                {functionPaParameters[0]: p0},
+                parent: domain,
+              ),
+            );
+          };
+          return builder;
+        // typedef GestureTapCallback = void Function()
+        // package:flutter/src/gestures/tap.dart
+        case 'void Function()':
+          void Function() builder = () {
+            return pa0Value(
+              FunctionDomain.getBody(map),
+              methodMap,
+              context,
+              domain,
+            );
+          };
+          return builder;
+        // typedef GestureTapDownCallback = void Function(TapDownDetails details)
+        // package:flutter/src/gestures/tap.dart
+        case 'void Function(TapDownDetails)':
+          List functionPaParameters = FunctionDomain.pa(map);
+          void Function(TapDownDetails) builder = (p0) {
             return pa0Value(
               FunctionDomain.getBody(map),
               methodMap,

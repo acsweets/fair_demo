@@ -1,6 +1,6 @@
 // flutterVersion = '3.19.3'
 // dartVersion = '3.3.1'
-// widgetCount = 1
+// widgetCount = 2
 // apiCount = 239
 // ignore_for_file: unused_import, unnecessary_import, implementation_imports, unused_shown_name, deprecated_member_use, prefer_single_quotes, unused_element, unused_field, duplicate_import, prefer_const_constructors, invalid_use_of_visible_for_testing_member
 import 'package:flutter/material.dart';
@@ -8,11 +8,12 @@ import 'package:demo/src/sugar/dart_core.dart';
 import 'package:demo/test/lib/sugar/common.dart';
 import 'package:demo/assets.dart';
 import 'package:demo/widget/input_box.dart';
+import 'package:demo/widget/radius_inkwell_widget.dart';
 import 'package:fair/fair.dart';
 
 const String flutterVersion = '3.19.3';
 const String dartVersion = '3.3.1';
-const int widgetCount = 1;
+const int widgetCount = 2;
 const int apiCount = 239;
 
 /// appComponents
@@ -29,6 +30,27 @@ Map<String, dynamic> appComponents = {
       text: props['text'],
       hintText: props['hintText'],
       textController: props['textController']),
+  'RadiusInkWellWidget': (props) => RadiusInkWellWidget(
+      key: props['key'],
+      child: props['child'],
+      radius: props['radius']?.toDouble(),
+      borderRadius: props['borderRadius'],
+      color: props['color'],
+      onPressed: props['onPressed'],
+      border: props['border'],
+      onTapDown: props['onTapDown'],
+      onLongPress: props['onLongPress'],
+      onTapCancel: props['onTapCancel'],
+      margin: props['margin'] ?? EdgeInsets.zero,
+      padding: props['padding'] ?? EdgeInsets.zero,
+      showShadow: props['showShadow'] ?? false,
+      boxShadow: as<BoxShadow>(props['boxShadow']),
+      shadowColor: props['shadowColor'],
+      onDoubleTap: props['onDoubleTap'],
+      colors: as<Color>(props['colors']) ?? const [],
+      begin: props['begin'] ?? Alignment.topCenter,
+      end: props['end'] ?? Alignment.bottomCenter,
+      elevation: props['elevation']?.toDouble() ?? 0),
   'SugarBool.and': (props) => SugarBool.and(props['pa'][0], props['pa'][1]),
   'SugarBool.boolToString': (props) => SugarBool.boolToString(props['pa'][0]),
   'SugarBool.exclusiveOr': (props) =>
@@ -444,6 +466,7 @@ Map<String, bool> appMapping = {
   'Assets.assets_image_love_png': false,
   'Assets.assets_image_wu_webp': false,
   'InputBox': true,
+  'RadiusInkWellWidget': true,
   'SugarBool.and': false,
   'SugarBool.boolToString': false,
   'SugarBool.exclusiveOr': false,

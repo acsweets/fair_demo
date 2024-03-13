@@ -7,7 +7,7 @@ import 'package:demo/test/lib/generated_m/flutter.bindings.dart' as local_versio
 import 'package:fair/src/internal/flexbuffer/fair_js_decoder.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
-import '../custom_dynamic.dart';
+import 'lib/custom/custom_dynamic.dart';
 import '../plugin.dart';
 import '../src/fair_app_generated.dart';
 import '../widget/custom_fair_bundle.dart';
@@ -54,17 +54,11 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
           ),
           navigatorKey: MyApp.navigatorKey,
-          // home:FairWidget(
-          //   path: "assets/bundle/lib_test_lib_page_demo_page.fair.json",
-          //     data: {
-          //       'fairProps': jsonEncode({'title': '你好'})
-          //     }
-          // )
           home: Scaffold(
             appBar: AppBar(title: Text("标题"),
             ),body:Container(
             child: FairWidget(
-              path: "assets/bundle/lib_test_lib_page_sugar.fair.json",
+              path: "assets/bundle/lib_test_lib_page_from_page.fair.json",
             ),
           )
           )),

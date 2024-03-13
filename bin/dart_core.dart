@@ -13,6 +13,7 @@ import 'util/utils.dart';
 DartFormatter _dartFormatter = DartFormatter();
 
 /// build dart core sugar
+/// 构建dart的语法糖
 Future<void> main(List<String> args) async {
   Directory projectDirectory = getProjectDirectory(pubGet: false);
 
