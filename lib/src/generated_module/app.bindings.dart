@@ -1,20 +1,34 @@
 // flutterVersion = '3.19.3'
 // dartVersion = '3.3.1'
-// widgetCount = 0
-// apiCount = 233
+// widgetCount = 1
+// apiCount = 239
 // ignore_for_file: unused_import, unnecessary_import, implementation_imports, unused_shown_name, deprecated_member_use, prefer_single_quotes, unused_element, unused_field, duplicate_import, prefer_const_constructors, invalid_use_of_visible_for_testing_member
 import 'package:flutter/material.dart';
 import 'package:demo/src/sugar/dart_core.dart';
 import 'package:demo/test/lib/sugar/common.dart';
+import 'package:demo/assets.dart';
+import 'package:demo/widget/input_box.dart';
 import 'package:fair/fair.dart';
 
 const String flutterVersion = '3.19.3';
 const String dartVersion = '3.3.1';
-const int widgetCount = 0;
-const int apiCount = 233;
+const int widgetCount = 1;
+const int apiCount = 239;
 
 /// appComponents
 Map<String, dynamic> appComponents = {
+  'Assets.assets_image_40_png': Assets.assets_image_40_png,
+  'Assets.assets_image_avatar_jpg': Assets.assets_image_avatar_jpg,
+  'Assets.assets_image_fluttercandies_grey_png':
+      Assets.assets_image_fluttercandies_grey_png,
+  'Assets.assets_image_loading_gif': Assets.assets_image_loading_gif,
+  'Assets.assets_image_love_png': Assets.assets_image_love_png,
+  'Assets.assets_image_wu_webp': Assets.assets_image_wu_webp,
+  'InputBox': (props) => InputBox(
+      key: props['key'],
+      text: props['text'],
+      hintText: props['hintText'],
+      textController: props['textController']),
   'SugarBool.and': (props) => SugarBool.and(props['pa'][0], props['pa'][1]),
   'SugarBool.boolToString': (props) => SugarBool.boolToString(props['pa'][0]),
   'SugarBool.exclusiveOr': (props) =>
@@ -423,6 +437,13 @@ Map<String, dynamic> appComponents = {
 
 /// appMapping
 Map<String, bool> appMapping = {
+  'Assets.assets_image_40_png': false,
+  'Assets.assets_image_avatar_jpg': false,
+  'Assets.assets_image_fluttercandies_grey_png': false,
+  'Assets.assets_image_loading_gif': false,
+  'Assets.assets_image_love_png': false,
+  'Assets.assets_image_wu_webp': false,
+  'InputBox': true,
   'SugarBool.and': false,
   'SugarBool.boolToString': false,
   'SugarBool.exclusiveOr': false,

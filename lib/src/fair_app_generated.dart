@@ -18,7 +18,7 @@ class FairAppGeneratedModule extends GeneratedModule {
   @override
   Map<String, bool> mapping() {
     return <String, bool>{
-      // ...appMapping,
+       ...appMapping,
       // ...packagesMapping,
       ...flutterMapping,
       // remember add your cases here too.

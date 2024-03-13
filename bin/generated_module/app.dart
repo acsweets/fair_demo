@@ -14,9 +14,7 @@ import '../util/utils.dart';
 // import 'package:flutter/semantics.dart';
 // import 'package:flutter/animation.dart';
 Set<String> _imports = <String>{
-  'import \'package:extended_text_library/extended_text_library.dart\' as extended_text_library;',
   'import \'package:flutter/material.dart\';',
-  'import \'package:extended_image/extended_image.dart\';',
 };
 
 String _codes = '''

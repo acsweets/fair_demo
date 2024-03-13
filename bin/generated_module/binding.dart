@@ -17,7 +17,8 @@
 import 'package:demo/src/sugar/dart_core.dart';
 import 'package:demo/test/lib/sugar/common.dart';
 // import 'package:fair_gallery/src/sugar/extension.dart';
-// import 'package:fair_gallery/assets.dart';
+import 'package:demo/assets.dart';
+import 'package:demo/widget/input_box.dart';
 // import 'package:fair_gallery/src/widget/extended_fair_widget.dart';
 // import 'package:fair_gallery/src/widget/share_data_widget.dart';
 // import 'package:fair_gallery/src/widget/push_to_refresh_header.dart';

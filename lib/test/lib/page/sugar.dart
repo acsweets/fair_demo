@@ -22,7 +22,7 @@ class _SugarPageState extends State<SugarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("语法糖的例子"),
+        title: const Text("语法糖的例子"),
       ),
       body: Sugar.ifEqual(random, 6, trueValue: () {
         return Container(
