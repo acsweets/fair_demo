@@ -4,75 +4,70 @@
     "appBar": {
       "className": "AppBar",
       "na": {
-        "centerTitle": true,
         "title": {
           "className": "Text",
           "pa": [
-            "密码登录"
-          ],
-          "na": {
-            "style": {
-              "className": "TextStyle",
-              "na": {
-                "fontSize": 18,
-                "fontWeight": "#(FontWeight.w400)"
-              }
-            }
-          }
+            "测试路由跳转页"
+          ]
         }
       }
     },
     "body": {
       "className": "Column",
       "na": {
-        "mainAxisAlignment": "#(MainAxisAlignment.center)",
         "children": [
           {
-            "className": "SizedBox",
+            "className": "Center",
             "na": {
-              "height": 100,
-              "width": 100
-            }
-          },
-          {
-            "className": "Image.asset",
-            "pa": [
-              "#(Assets.assets_image_wu_webp)"
-            ],
-            "na": {
-              "color": "#(Colors.black)"
-            }
-          },
-          {
-            "className": "Text",
-            "pa": [
-              "欢迎使用智慧之道"
-            ],
-            "na": {
-              "style": {
-                "className": "TextStyle",
+              "child": {
+                "className": "Text",
+                "pa": [
+                  "#($index)"
+                ],
                 "na": {
-                  "fontSize": 20
+                  "style": {
+                    "className": "TextStyle",
+                    "na": {
+                      "fontSize": 16,
+                      "color": "#(Colors.green)"
+                    }
+                  }
                 }
               }
             }
           },
           {
-            "className": "InputBox",
+            "className": "SizedBox",
             "na": {
-              "textController": {
-                "className": "TextEditingController"
-              },
-              "text": "账号"
+              "height": 20
             }
           },
           {
-            "className": "InputBox",
+            "className": "GestureDetector",
             "na": {
-              "textController": {
-                "className": "TextEditingController"
+              "onTap": {
+                "className": "FairFunction",
+                "body": "%(_onValueChanged(5))",
+                "tag": "void Function()",
+                "rt": "void"
               },
-              "text": "密码"
+              "child": {
+                "className": "SizedBox",
+                "na": {
+                  "child": {
+                    "className": "Text",
+                    "pa": [
+                      "点击改变"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "className": "SizedBox",
+            "na": {
+              "height": 20
             }
           },
           {
@@ -88,7 +83,7 @@
                   ],
                   "na": {
                     "arguments": {
-                      "path": "assets/bundle/assets/bundle/lib_deom.fair.json",
+                      "path": "assets/bundle/lib_test_lib_page_sugar.fair.json",
                       "data": {}
                     }
                   }
@@ -109,5 +104,5 @@
     }
   },
   "methodMap": {},
-  "digest": "612a955fdc40d5e222847148be524499"
+  "digest": "b4ebb9c1d62cacddebdbf4e8033d7204"
 }

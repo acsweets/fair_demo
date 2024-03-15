@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:demo/test/lib/custom/custom_routes.dart';
 import 'package:fair/fair.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fair_version/src/widgets/version.dart' as fair_version;
@@ -13,6 +14,7 @@ import '../src/fair_app_generated.dart';
 import '../widget/custom_fair_bundle.dart';
 import '../widget/custom_fair_jsdecoder.dart';
 import 'lib/delegate/delegate_base.dart';
+import 'lib/page/start_page.dart';
 import 'lib/utils/fair_binding.dart';
 
 void main() {
@@ -31,7 +33,9 @@ void main() {
   FairApp.runApplication(
       FairApp(
         generated: FairAppGeneratedModule(),
-        delegate: FairDelegateBase.delegates,
+        delegate: <String, FairDelegateBuilder>{
+          "regular_dynamic_page": (context, data) => FairDelegateBase(),
+        },
         dynamicWidgetBuilder: (proxyMirror, page, bound, {bundle}) =>
             CustomDynamicWidgetBuilder(proxyMirror, page, bound, bundle: bundle),
         bundleProvider: CustomFairBundleLoader(),
@@ -49,19 +53,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OKToast(
       child: MaterialApp(
-          title: 'FairGallery',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          navigatorKey: MyApp.navigatorKey,
-          home: Scaffold(
-            appBar: AppBar(title: Text("标题"),
-            ),body:Container(
-            child: FairWidget(
-              path: "assets/bundle/lib_test_lib_page_from_page.fair.json",
-            ),
-          )
-          )),
+        title: 'FairGallery',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        navigatorKey: MyApp.navigatorKey,
+        // home:  FairWidget(
+        //   path: "assets/bundle/lib_test_lib_page_from_page.fair.json",
+        // ),
+
+        home: StartPage(),
+        routes: routes,
+      ),
     );
   }
 }

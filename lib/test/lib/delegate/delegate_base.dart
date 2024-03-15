@@ -1,13 +1,7 @@
 import 'package:fair/fair.dart';
-// import 'package:fair_gallery/fair_gallery_routes.dart';
-// import 'package:fair_gallery/src/delegate/photo_gallery.dart';
-// import 'package:fair_gallery/src/delegate/photo_swiper.dart';
-import 'package:flutter/material.dart';
 
+//这在里可以写一些公共的要用的值和方法
 class FairDelegateBase extends FairDelegate {
-  FairDelegateBase(this.data);
-  final Map<String, dynamic>? data;
-
   @override
   Map<String, PropertyValue> bindValue() {
     return <String, PropertyValue>{
@@ -16,24 +10,15 @@ class FairDelegateBase extends FairDelegate {
     };
   }
 
-  static Map<String, FairDelegateBuilder> delegates =
-  <String, FairDelegateBuilder>{
-    // for (var routeName in routeNames)
-    //   routeName: (context, data) => FairDelegateBase(data),
-    // Routes.fairPhotoGalleryPage.name: (
-    //     BuildContext context,
-    //     Map<String, dynamic>? data,
-    //     ) =>
-    //     PhotoGalleryDelegate(data),
-    // Routes.fairPhotoGalleryPage1.name: (
-    //     BuildContext context,
-    //     Map<String, dynamic>? data,
-    //     ) =>
-    //     PhotoGalleryDelegate(data),
-    // Routes.fairPhotoSwiper.name: (
-    //     BuildContext context,
-    //     Map<String, dynamic>? data,
-    //     ) =>
-    //     PhotoSwiperDelegate(data),
-  };
+  @override
+  Map<String, Function> bindFunction() {
+    return {
+      ...super.bindFunction(),
+      'showPrint': showPrint,
+    };
+  }
+
+  void showPrint() {
+    print("点击事件打印");
+  }
 }
