@@ -1,7 +1,7 @@
 // flutterVersion = '3.19.3'
 // dartVersion = '3.3.1'
-// widgetCount = 2
-// apiCount = 239
+// widgetCount = 3
+// apiCount = 242
 // ignore_for_file: unused_import, unnecessary_import, implementation_imports, unused_shown_name, deprecated_member_use, prefer_single_quotes, unused_element, unused_field, duplicate_import, prefer_const_constructors, invalid_use_of_visible_for_testing_member
 import 'package:flutter/material.dart';
 import 'package:demo/src/sugar/dart_core.dart';
@@ -9,12 +9,13 @@ import 'package:demo/test/lib/sugar/common.dart';
 import 'package:demo/assets.dart';
 import 'package:demo/widget/input_box.dart';
 import 'package:demo/widget/radius_inkwell_widget.dart';
+import 'package:demo/widget/listenable_scope.dart';
 import 'package:fair/fair.dart';
 
 const String flutterVersion = '3.19.3';
 const String dartVersion = '3.3.1';
-const int widgetCount = 2;
-const int apiCount = 239;
+const int widgetCount = 3;
+const int apiCount = 242;
 
 /// appComponents
 Map<String, dynamic> appComponents = {
@@ -30,6 +31,22 @@ Map<String, dynamic> appComponents = {
       text: props['text'],
       hintText: props['hintText'],
       textController: props['textController']),
+  'ListenableScope': (props) => ListenableScope(
+      key: props['key'],
+      configs: as<ListenableScopeConfig>(props['configs']) ?? const [],
+      onCreate: props['onCreate'],
+      addListener: props['addListener'],
+      uniqueKey: props['uniqueKey'],
+      onCreateKey: props['onCreateKey'],
+      builder: props['builder']),
+  'ListenableScope.get': (props) =>
+      ListenableScope.get(props['pa'][0], props['pa'][1]),
+  'ListenableScope.of': (props) =>
+      ListenableScope.of(props['pa'][0], props['pa'][1]),
+  'ListenableScopeConfig': (props) => ListenableScopeConfig(
+      type: props['type'],
+      addListener: props['addListener'] ?? false,
+      tag: props['tag'] ?? ''),
   'RadiusInkWellWidget': (props) => RadiusInkWellWidget(
       key: props['key'],
       child: props['child'],
@@ -466,6 +483,10 @@ Map<String, bool> appMapping = {
   'Assets.assets_image_love_png': false,
   'Assets.assets_image_wu_webp': false,
   'InputBox': true,
+  'ListenableScope': true,
+  'ListenableScope.get': false,
+  'ListenableScope.of': false,
+  'ListenableScopeConfig': false,
   'RadiusInkWellWidget': true,
   'SugarBool.and': false,
   'SugarBool.boolToString': false,

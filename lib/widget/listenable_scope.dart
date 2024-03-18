@@ -77,7 +77,7 @@ class _ListenableScopeState extends State<ListenableScope>
   @override
   void initState() {
     super.initState();
-    _uniqueKey = widget.uniqueKey + '${DateTime.now().microsecondsSinceEpoch}';
+    _uniqueKey = '${widget.uniqueKey}${DateTime.now().microsecondsSinceEpoch}';
     widget.onCreateKey(_uniqueKey);
     ListenableScope._scopes[_uniqueKey] = this;
     _create();

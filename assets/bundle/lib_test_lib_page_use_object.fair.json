@@ -1,0 +1,151 @@
+{
+  "className": "Scaffold",
+  "na": {
+    "appBar": {
+      "className": "AppBar",
+      "na": {
+        "title": {
+          "className": "Text",
+          "pa": [
+            " 使用Dart中的对象"
+          ]
+        },
+        "centerTitle": true
+      }
+    },
+    "body": {
+      "className": "ListenableScope",
+      "na": {
+        "configs": [
+          {
+            "className": "ListenableScopeConfig",
+            "na": {
+              "type": "ScrollController"
+            }
+          },
+          {
+            "className": "ListenableScopeConfig",
+            "na": {
+              "type": "ValueNotifier",
+              "addListener": true
+            }
+          }
+        ],
+        "onCreate": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Sugar.switchCase",
+            "pa": [
+              "^(key)",
+              [
+                {
+                  "className": "SugarSwitchCaseObj",
+                  "na": {
+                    "sugarCase": {
+                      "className": "FairFunction",
+                      "body": "ScrollController",
+                      "tag": "String Function()",
+                      "rt": "String"
+                    },
+                    "reValue": {
+                      "className": "FairFunction",
+                      "body": {
+                        "className": "ScrollController"
+                      },
+                      "tag": "ScrollController Function()",
+                      "rt": "ScrollController"
+                    }
+                  }
+                },
+                {
+                  "className": "SugarSwitchCaseObj",
+                  "na": {
+                    "sugarCase": {
+                      "className": "FairFunction",
+                      "body": "ValueNotifier",
+                      "tag": "String Function()",
+                      "rt": "String"
+                    },
+                    "reValue": {
+                      "className": "FairFunction",
+                      "body": {
+                        "className": "ValueNotifier",
+                        "pa": [
+                          1.0
+                        ]
+                      },
+                      "tag": "ValueNotifier<double> Function()",
+                      "rt": "ValueNotifier<double>"
+                    }
+                  }
+                }
+              ],
+              {
+                "className": "FairFunction",
+                "body": {
+                  "className": "Sugar.nullValue"
+                },
+                "tag": "dynamic Function()",
+                "rt": "dynamic"
+              }
+            ]
+          },
+          "parameters": {
+            "pa": [
+              "key",
+              "vsync"
+            ]
+          },
+          "tag": "dynamic Function(String, TickerProvider)",
+          "rt": "dynamic"
+        },
+        "uniqueKey": "UseObject",
+        "addListener": "@(_addListener)",
+        "onCreateKey": "@(_onCreateKey)",
+        "builder": {
+          "className": "FairFunction",
+          "body": {
+            "className": "Scaffold",
+            "na": {
+              "body": {
+                "className": "Container",
+                "na": {
+                  "width": "$(double.infinity)",
+                  "height": 200,
+                  "color": "#(Colors.greenAccent)",
+                  "child": {
+                    "className": "TextButton",
+                    "na": {
+                      "onPressed": {
+                        "className": "SugarCommon.voidCallBack",
+                        "na": {
+                          "function": "@(_onValueNotifierSetValue)",
+                          "value": 666.0
+                        }
+                      },
+                      "child": {
+                        "className": "Text",
+                        "pa": [
+                          "设置 ValueNotifier 的值"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "pa": [
+              "context"
+            ]
+          },
+          "tag": "Widget Function(BuildContext)",
+          "rt": "Widget"
+        }
+      }
+    }
+  },
+  "methodMap": {},
+  "digest": "a7e77bd429087301dd863b41516a9b54"
+}

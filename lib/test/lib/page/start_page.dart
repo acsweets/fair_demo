@@ -54,7 +54,7 @@ class _StartPageState extends State<StartPage> {
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, 'regular_dynamic_page',
-                  arguments: {'path': 'assets/bundle/lib_test_lib_page_route_page.fair.json', 'data': {}});
+                  arguments: {'path': 'assets/bundle/lib_test_lib_page_use_object.fair.json', 'data': {}});
             },
             child: Text("点击跳转使用flutter对象"),
           ),
