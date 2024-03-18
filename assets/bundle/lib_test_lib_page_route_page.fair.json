@@ -73,24 +73,25 @@
           {
             "className": "GestureDetector",
             "na": {
-              "onTap": {
-                "className": "FairFunction",
-                "body": {
-                  "className": "Navigator.pushNamed",
-                  "pa": [
-                    "^(context)",
-                    "regular_dynamic_page"
-                  ],
-                  "na": {
-                    "arguments": {
-                      "path": "assets/bundle/lib_test_lib_page_sugar.fair.json",
-                      "data": {}
-                    }
-                  }
-                },
-                "tag": "void Function()",
-                "rt": "void"
-              },
+              "onTap": "@(_showToast)",
+              "child": {
+                "className": "Text",
+                "pa": [
+                  "点击打印"
+                ]
+              }
+            }
+          },
+          {
+            "className": "SizedBox",
+            "na": {
+              "height": 20
+            }
+          },
+          {
+            "className": "GestureDetector",
+            "na": {
+              "onTap": "@(_goNewPage)",
               "child": {
                 "className": "Text",
                 "pa": [
@@ -104,5 +105,5 @@
     }
   },
   "methodMap": {},
-  "digest": "b4ebb9c1d62cacddebdbf4e8033d7204"
+  "digest": "7ab7fc43851c7edb7948e7d9f296ae20"
 }

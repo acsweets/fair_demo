@@ -3,6 +3,39 @@ let FairCommonPlugin = function () {
     return {
         futureComplete: function (resp) {
              fairCommonPluginRequest(resp, 'futureComplete');
-        }                     
+        },
+        launchUrl: function (resp) {
+             fairCommonPluginRequest(resp, 'launchUrl');
+        },
+        savePhoto: function (resp) {
+             fairCommonPluginRequest(resp, 'savePhoto');
+        },
+        futureDelayed: function (resp) {
+             fairCommonPluginRequest(resp, 'futureDelayed');
+        },
+        navigate: function (resp) {
+             fairCommonPluginRequest(resp, 'navigate');
+        },
+        scrollController: function (resp) {
+             fairCommonPluginRequest(resp, 'scrollController');
+        },
+        animationController: function (resp) {
+             fairCommonPluginRequest(resp, 'animationController');
+        },
+        tabController: function (resp) {
+             fairCommonPluginRequest(resp, 'tabController');
+        },
+        valueNotifier: function (resp) {
+             fairCommonPluginRequest(resp, 'valueNotifier');
+        },
+        showMessageToast: function (resp) {
+             fairCommonPluginRequest(resp, 'showMessageToast');
+        },
+        jsPrint: function (resp) {
+             fairCommonPluginRequest(resp, 'jsPrint');
+        },
+        http: function (resp) {
+             fairCommonPluginRequest(resp, 'http');
+        }
     }
 }

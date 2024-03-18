@@ -1,4 +1,3 @@
-import 'package:demo/plugin.dart';
 import 'package:fair/fair.dart';
 import 'package:flutter/material.dart';
 
@@ -36,11 +35,4 @@ class _TestPageState extends State<TestPage> {
               );
             }));
   }
-
-  // void showToast() {
-  //   FairCommonPlugin().showMessageToast({
-  //     'pageName': _pageName,
-  //     'msg': '调用插件案例',
-  //   });
-  // }
 }

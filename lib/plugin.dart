@@ -4,9 +4,7 @@ import 'package:demo/widget/listenable_scope.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart' as oktoast;
-import 'package:demo/toast_util.dart';
 import 'package:fair/fair.dart';
-import 'package:flutter/cupertino.dart';
 import 'test/main.dart';
 //
 // /// 跟 js 交互的方法类
@@ -67,7 +65,7 @@ class FairCommonPlugin extends IFairPlugin
       'animationController': animationController,
       'tabController': tabController,
       'valueNotifier': valueNotifier,
-      'showToast': showToast,
+      'showMessageToast': showMessageToast,
       'jsPrint': jsPrint,
       'http': http,
     };
@@ -204,7 +202,7 @@ mixin ToastPlugin implements FairCommonPluginMixin {
     map,
         (dynamic requestMap) async {
       final msg = requestMap['msg'];
-      showToast(text: msg);
+      oktoast.showToast(msg);
       return null;
     },
   );
