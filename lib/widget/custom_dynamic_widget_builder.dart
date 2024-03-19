@@ -1,5 +1,8 @@
 import 'package:fair/fair.dart';
 import 'package:flutter/material.dart';
+
+import '../src/generated_module/app.function.dart';
+import '../src/generated_module/flutter.function.dart';
 ///"itemBuilder": {
 ///           "className": "FairFunction",
 ///           "body": {
@@ -28,49 +31,51 @@ import 'package:flutter/material.dart';
 ///tag 为该回调方法的唯一标识，这个就是我们用来做匹配的。
 /// rt(return type) 为该回调方法的返回类型。
 
-class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder {
-  CustomDynamicWidgetBuilder(
-      super.proxyMirror,
-      super.page,
-      super.bound, {
-        super.bundle,
-      });
-  @override
-  dynamic convert(BuildContext context, Map map, Map? methodMap,
-      {Domain? domain}) {
-    // tag 就是 className
-    // var name = map[tag];
-    // switch (name) {
-    //   case 'FairFunction':
-    //   var tag = FunctionDomain.getTag(map);
-    //     switch (tag) {
-    //     // typedef LoadingMoreItemBuilder<in T> = Widget Function(BuildContext context, T item, int index)
-    //     // package:loading_more_list/src/list_config/loading_more_list_config.dart
-    //       case 'Widget Function(BuildContext, dynamic, int)':
-    //         List functionPaParameters = FunctionDomain.pa(map);
-    //         builder(p0, p1, p2) {
-    //           return pa0Value(
-    //             FunctionDomain.getBody(map),
-    //             methodMap,
-    //             context,
-    //             FunctionDomain(
-    //               {
-    //                 functionPaParameters[0]: p0,
-    //                 functionPaParameters[1]: p1,
-    //                 functionPaParameters[2]: p2
-    //               },
-    //               parent: domain,
-    //             ),
-    //           );
-    //         }
-    //         return builder;
-    //     }
-    //     break;
-    //   default:
-    // }
-    return super.convert(context, map, methodMap, domain: domain);
-  }
-}
+// class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder  with
+//     AppFunctionDynamicWidgetBuilder,
+//     FlutterFunctionDynamicWidgetBuilder{
+//   CustomDynamicWidgetBuilder(
+//       super.proxyMirror,
+//       super.page,
+//       super.bound, {
+//         super.bundle,
+//       });
+//   @override
+//   dynamic convert(BuildContext context, Map map, Map? methodMap,
+//       {Domain? domain}) {
+//     // tag 就是 className
+//     // var name = map[tag];
+//     // switch (name) {
+//     //   case 'FairFunction':
+//     //   var tag = FunctionDomain.getTag(map);
+//     //     switch (tag) {
+//     //     // typedef LoadingMoreItemBuilder<in T> = Widget Function(BuildContext context, T item, int index)
+//     //     // package:loading_more_list/src/list_config/loading_more_list_config.dart
+//     //       case 'Widget Function(BuildContext, dynamic, int)':
+//     //         List functionPaParameters = FunctionDomain.pa(map);
+//     //         builder(p0, p1, p2) {
+//     //           return pa0Value(
+//     //             FunctionDomain.getBody(map),
+//     //             methodMap,
+//     //             context,
+//     //             FunctionDomain(
+//     //               {
+//     //                 functionPaParameters[0]: p0,
+//     //                 functionPaParameters[1]: p1,
+//     //                 functionPaParameters[2]: p2
+//     //               },
+//     //               parent: domain,
+//     //             ),
+//     //           );
+//     //         }
+//     //         return builder;
+//     //     }
+//     //     break;
+//     //   default:
+//     // }
+//     return super.convert(context, map, methodMap, domain: domain);
+//   }
+// }
 // ignore_for_file: implementation_imports, prefer_function_declarations_over_variables, void_checks
 
 //新的 DynamicWidgetBuilder 将变成这样。方法域的使用

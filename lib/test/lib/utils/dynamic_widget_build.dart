@@ -5,36 +5,34 @@
 // import 'package:fair_gallery/src/generated_module/flutter.function.dart';
 // import 'package:fair_gallery/src/generated_module/packages.function.dart';
 import 'package:flutter/material.dart';
-// import 'package:loading_more_list/loading_more_list.dart';
 import 'package:fair/fair.dart';
 import 'package:fair/src/extension.dart';
+import '../../../src/generated_module/app.function.dart';
 
-import '../../../src/generated/app.function.dart';
-
-class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder
-    with
-        AppFunctionDynamicWidgetBuilder/*,
-        PackagesFunctionDynamicWidgetBuilder,
-        ,FlutterFunctionDynamicWidgetBuilder*/ {
-  CustomDynamicWidgetBuilder(
-      super.proxyMirror,
-      super.page,
-      super.bound, {
-        super.bundle,
-      });
-
-  @override
-  dynamic convert(BuildContext context, Map map, Map? methodMap,
-      {Domain? domain}) {
-    var name = map[tag];
-
-    switch (name) {
-      case 'FairFunction':
-        var appFunction =
-        convertAppFunction(context, map, methodMap, domain: domain);
-        if (appFunction != null) {
-          return appFunction;
-        }
+// class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder
+//     with
+//         AppFunctionDynamicWidgetBuilder/*,
+//         PackagesFunctionDynamicWidgetBuilder,
+//         ,FlutterFunctionDynamicWidgetBuilder*/ {
+//   CustomDynamicWidgetBuilder(
+//       super.proxyMirror,
+//       super.page,
+//       super.bound, {
+//         super.bundle,
+//       });
+//
+//   @override
+//   dynamic convert(BuildContext context, Map map, Map? methodMap,
+//       {Domain? domain}) {
+//     var name = map[tag];
+//
+//     switch (name) {
+//       case 'FairFunction':
+//         var appFunction =
+//         convertAppFunction(context, map, methodMap, domain: domain);
+//         if (appFunction != null) {
+//           return appFunction;
+//         }
         // var packagesFunction =
         // convertPackagesFunction(context, map, methodMap, domain: domain);
         // if (packagesFunction != null) {
@@ -44,27 +42,27 @@ class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder
         // convertFlutterFunction(context, map, methodMap, domain: domain);
         // if (flutterFunction != null) {
         //   return flutterFunction;
+        // // }
+        // var tag = FunctionDomain.getTag(map);
+        // switch (tag) {
+        //   default:
         // }
-        var tag = FunctionDomain.getTag(map);
-        switch (tag) {
-          default:
-        }
-        break;
+        // break;
     // &
-      case 'SugarBool.and':
-        var p0 = pa0Value(pa0(map), methodMap, context, domain);
-        if (!p0) {
-          return false;
-        }
-        return pa0Value(
-            FunctionDomain.getBody(pa1(map)), methodMap, context, domain);
-      case 'SugarBool.inclusiveOr':
-        var p0 = pa0Value(pa0(map), methodMap, context, domain);
-        if (p0) {
-          return true;
-        }
-        return pa0Value(
-            FunctionDomain.getBody(pa1(map)), methodMap, context, domain);
+    //   case 'SugarBool.and':
+    //     var p0 = pa0Value(pa0(map), methodMap, context, domain);
+    //     if (!p0) {
+    //       return false;
+    //     }
+    //     return pa0Value(
+    //         FunctionDomain.getBody(pa1(map)), methodMap, context, domain);
+    //   case 'SugarBool.inclusiveOr':
+    //     var p0 = pa0Value(pa0(map), methodMap, context, domain);
+    //     if (p0) {
+    //       return true;
+    //     }
+    //     return pa0Value(
+    //         FunctionDomain.getBody(pa1(map)), methodMap, context, domain);
       // case 'SugarCommon.loadingMoreIndicatorBuilder':
       //   LoadingMoreIndicatorBuilder builder = (
       //       _,
@@ -117,52 +115,52 @@ class CustomDynamicWidgetBuilder extends DynamicWidgetBuilder
       //     );
       //   };
       //   return builder;
-      case 'SugarCore.mapForEachToList':
-        final source = pa0Value(pa0(map), methodMap, context, domain);
-        var children = [];
-        if (source is Map && source.isNotEmpty) {
-          final fairFunction = pa1(map);
-          // item
-          final functionParameters = FunctionDomain.pa(fairFunction);
-          assert(functionParameters.length == 2,
-          'SugarCore.mapForEachToList 的域入参个数不对');
-          for (final key in source.keys) {
-            children.add(
-              pa0Value(
-                FunctionDomain.getBody(fairFunction),
-                methodMap,
-                context,
-                FunctionDomain(
-                  {
-                    functionParameters[0]: key,
-                    functionParameters[1]: source[key],
-                  },
-                  parent: domain,
-                ),
-              ),
-            );
-          }
-        }
-
-        children = children.asIteratorOf<Widget>()?.toList() ?? children;
-        return children;
-      default:
-    }
-
-    return super.convert(
-      context,
-      map,
-      methodMap,
-      domain: domain,
-    );
-  }
-
-  dynamic getMapper(String name, BuildContext context, Map map, Map? methodMap,
-      {Domain? domain}) {
-    var module = bound?.modules?.moduleOf(name)?.call();
-    dynamic mapper = module;
-    mapper ??= bound?.functionOf(name) ?? bound?.valueOf(name);
-    mapper ??= proxyMirror?.componentOf(name);
-    return mapper;
-  }
-}
+//       case 'SugarCore.mapForEachToList':
+//         final source = pa0Value(pa0(map), methodMap, context, domain);
+//         var children = [];
+//         if (source is Map && source.isNotEmpty) {
+//           final fairFunction = pa1(map);
+//           // item
+//           final functionParameters = FunctionDomain.pa(fairFunction);
+//           assert(functionParameters.length == 2,
+//           'SugarCore.mapForEachToList 的域入参个数不对');
+//           for (final key in source.keys) {
+//             children.add(
+//               pa0Value(
+//                 FunctionDomain.getBody(fairFunction),
+//                 methodMap,
+//                 context,
+//                 FunctionDomain(
+//                   {
+//                     functionParameters[0]: key,
+//                     functionParameters[1]: source[key],
+//                   },
+//                   parent: domain,
+//                 ),
+//               ),
+//             );
+//           }
+//         }
+//
+//         children = children.asIteratorOf<Widget>()?.toList() ?? children;
+//         return children;
+//       default:
+//     }
+//
+//     return super.convert(
+//       context,
+//       map,
+//       methodMap,
+//       domain: domain,
+//     );
+//   }
+//
+//   dynamic getMapper(String name, BuildContext context, Map map, Map? methodMap,
+//       {Domain? domain}) {
+//     var module = bound?.modules?.moduleOf(name)?.call();
+//     dynamic mapper = module;
+//     mapper ??= bound?.functionOf(name) ?? bound?.valueOf(name);
+//     mapper ??= proxyMirror?.componentOf(name);
+//     return mapper;
+//   }
+// }

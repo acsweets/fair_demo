@@ -117,11 +117,10 @@
                     "className": "TextButton",
                     "na": {
                       "onPressed": {
-                        "className": "SugarCommon.voidCallBack",
-                        "na": {
-                          "function": "@(_onValueNotifierSetValue)",
-                          "value": 666.0
-                        }
+                        "className": "FairFunction",
+                        "body": "",
+                        "tag": "void Function()",
+                        "rt": "void"
                       },
                       "child": {
                         "className": "Text",
@@ -147,5 +146,5 @@
     }
   },
   "methodMap": {},
-  "digest": "a7e77bd429087301dd863b41516a9b54"
+  "digest": "5c180198682a2dd7397570acbc829c28"
 }

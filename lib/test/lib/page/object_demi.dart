@@ -1,8 +1,6 @@
 import 'package:fair/fair.dart';
 import 'package:flutter/material.dart';
-import '../../../plugin.dart';
 import '../../../widget/listenable_scope.dart';
-import '../sugar/common.dart';
 
 @FairPatch()
 class UseObject extends StatefulWidget {
@@ -15,27 +13,10 @@ class UseObject extends StatefulWidget {
 class _UseObjectState extends State<UseObject> {
   @FairProps()
   var fairProps;
-  final String _pageName = '#FairKey#';
 
-  // 用于去内存里面获取 ListenableScope
-  String _uniqueKey = '';
 
-  void _onCreateKey(String key) {
-    _uniqueKey = key;
-  }
-
-  void _addListener(dynamic value) {
-    var type = value[0];
-    var values = value[1];
-
-    FairCommonPlugin().jsPrint(
-      {
-        'pageName': _pageName,
-        'type': type,
-        'values': values,
-      },
-    );
-  }
+  void _addListener(value) {}
+  void _onCreateKey(key) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,10 +59,7 @@ class _UseObjectState extends State<UseObject> {
               height: 200,
               color: Colors.greenAccent,
               child: TextButton(
-                onPressed: SugarCommon.voidCallBack(
-                  function: _onValueNotifierSetValue,
-                  value: 666.0,
-                ),
+                onPressed: () {},
                 child: const Text('设置 ValueNotifier 的值'),
               ),
             ),
@@ -89,15 +67,5 @@ class _UseObjectState extends State<UseObject> {
         },
       ),
     );
-  }
-
-  void _onValueNotifierSetValue(double value) {
-    FairCommonPlugin().valueNotifier({
-      'pageName': _pageName,
-      'uniqueKey': _uniqueKey,
-      'type': 'ValueNotifier',
-      'method': 'set',
-      'parameter': value,
-    });
   }
 }
