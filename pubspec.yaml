@@ -136,7 +136,5 @@ dependency_overrides:
   intl: ^0.18.1
   #initState不生成js
   #原因是FairCompiler中引入的高版本的analyzer解析失败，可以通过固定analyzer版本解决
-#  analyzer: 5.6.0
-#  dart_style: 2.2.5
-  dart_style: ^2.3.6
-  analyzer: ^5.6.0
+  analyzer: 5.6.0
+  dart_style: 2.2.5
